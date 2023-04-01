@@ -15,6 +15,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class ChatServlet extends HttpServlet {
     private String message;
 
+    public void init() {
+        message = "Hello World!";
+    }
     //static so this set is unique
     public static Set<String> rooms = new HashSet<>();
 
@@ -40,6 +43,9 @@ public class ChatServlet extends HttpServlet {
         // send the random code as the response's content
         PrintWriter out = response.getWriter();
         out.println(generatingRandomUpperAlphanumericString(5));
+        out.println("<html><body>");
+        out.println("<h1>" + message + "</h1>");
+        out.println("</body></html>");
 
     }
 

@@ -22,14 +22,74 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
-
 <!-- Add your site or application content here -->
+<body style="margin:0;">
+<div id="room">
+  <div class="custom-padding">
+    <nav>
+      <div class="logo">Chat Server&#x1F44A;</div>
+
+      <ul class="menu-area">
+        <li class="nav-item">
+        <li><a href="index.html" class="nav-link" id="nav-link1">Chat</a></li>
+        <li><a href="about.html" class="nav-link" id="nav-link">About</a></li>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <h1>You are playing in room ...</h1>
+  <div align="center">
 
 
+    <section class="msger">
+      <header class="msger-header">
+        <div class="msger-header-title">
+          <i class="fas fa-comment-alt"></i> Chat
+        </div>
+        <div class="msger-header-options">
+          <span><i class="fas fa-cog"></i></span>
+        </div>
+      </header>
+
+      <main class="msger-chat">
+        <div class="msg left-msg">
+          <div
+                  class="msg-img"
+                  style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+          ></div>
+
+          <textarea title="Chat Log" id="log" readonly
+                    style="display: block; width: 500%; height: 500px; resize: none; margin: 50px; padding: 0; border: 0;"></textarea>
+        </div>
+      </main>
+    </section>
+    <div align="center">
+
+      <input title="Chat Input" id="input" type="text" class="msger-input" placeholder="Enter your message...";  style="display: block; "
+             autofocus/>
+
+    </div>
+  </div>
+  <div class="sidebar">
+    <div>List of chat rooms</div>
+    <div></div>
+    <div></div>
 
 
+    <input type="text" id="room-code">
+    <button id="btRoom" onclick="enterRoom()">Join</button>
+  </div>
+  <div class="body-text">
+    <!-- body content -->
+  </div>
 
+  <div class="copyright-container">
+    <div class="vert-align">
+      <p class="headline">
+        Copyright &copy; CSCI 2020U - Winter 2023 - Assignment 2</p>
+    </div>
+  </div>
+</div>
 
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
@@ -42,7 +102,7 @@
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
-
+</div>
 </html>
 
 
