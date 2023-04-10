@@ -18,12 +18,11 @@ import java.util.Map;
 public class ChatServer {
 
     // contains a static List of ChatRoom used to control the existing rooms and their users
-
+    private static Map<String, ChatRoom> chatRooms = new HashMap<>();
     // you may add other attributes as you see fit
     private Map<String, String> usernames = new HashMap<String, String>();
     private static Map<String, String> roomList = new HashMap<String, String>();
-
-
+    private static Map<String, String> roomHistoryList = new HashMap<String, String>();
 
     @OnOpen
     public void open(@PathParam("roomID") String roomID, Session session) throws IOException, EncodeException {
@@ -89,5 +88,50 @@ public class ChatServer {
         }
 
     }
+
+    @OnError
+    public void onError(Session session, Throwable throwable) {
+        System.out.println("Error: " + throwable.getMessage());
+    }
+
+    /**
+     * Broadcasts a message to all the users of a chat room.
+     * @param chatRoom the chat room to which the message will be broadcasted.
+     * @param message the message to be broadcasted.
+     */
+    private void broadcastToRoom(ChatRoom chatRoom, String message) {
+        for (String userId : chatRoom.getUsers()) {
+            Session peer = chatRoom.getSession(userId);
+            if (peer != null && peer.isOpen()) {
+                try {
+                    peer.getBasicRemote().sendText("{\"type\": \"chat\", \"message\":\"" + message + "\"}");
+                } catch (IOException e) {
+                    System.out.println("Error broadcasting message: " + e.getMessage());
+                }
+            }
+        }
+    }
+
+    /**
+     * Finds a chat room in the chatRooms list, if it does not exist, it creates a new one.
+     * @param roomID the ID of the chat room to be found or created.
+     * @return the chat room found or created.
+     */
+    private ChatRoom findOrCreateChatRoom(String roomID) {
+        ChatRoom chatRoom = null;
+        for (ChatRoom cr : chatRooms) {
+            if (cr.getCode().equals(roomID)) {
+                chatRoom = cr;
+                break;
+            }
+        }
+        if (chatRoom == null) {
+            chatRoom = new ChatRoom(roomID);
+            chatRooms.add(chatRoom);
+        }
+        return chatRoom;
+    }
+
+
 
 }

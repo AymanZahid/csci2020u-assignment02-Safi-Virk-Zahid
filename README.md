@@ -1,38 +1,36 @@
-# Assignment 02 - Web Chat Server (Instructions)
+# Assignment 02 - Web Chat Server
+
 > Course: CSCI 2020U: Software Systems Development and Integration
 
-This is the template for your Assignment 02.
+The Interactions:
+We can list the all the usernames that are in a room.
+Add the users status.
+Add profile images for each user.
 
-## Overview
-You want to create a web chat server with multiple rooms. This will allow you and your friends to chat privately.
+A)
+Project information:
 
-- Check the `Canvas/Assingments/Assignment 02` for more the detailed instructions.
+The project was to create a web chat server with multiple rooms. Which will allow you and your friends to chat privately.
 
-### WebChatServer - Endpoints
+Index.html
+![chat1](images/chat1.png)
 
-**Connect to the websocket**
+![chat2](images/chat2.png)
 
-From the `ChatServer` class. This will create a new client connect to the web server. The server and client communicate using `json` messages.
-- `ws://localhost:8080/WSChatServer-1.0-SNAPSHOT/ws/{roomID}`
+About.html
+![about](images/about.png)
 
+Group Members:
+Sandeep Virk
+Ayman Zahid
+Omar Safi
 
-**GET a new (unique) room code**
+B)
+Improvements:
+Added a logo with the title. Used a function liner-gradient() for the background-image for both the index.html and about.html and set it to the right, with three different colours. Added a background image for the sidebar. Modified the chat box to make it look aesthetically pleasing. Changed the font colours to match and blend in with the background.
 
-From the `ChatServlet` class. This will return a `text/plain` content type.
-- `http://localhost:8080/WSChatServer-1.0-SNAPSHOT/chat-servlet`
-See a sample of the response data:
-```
-1B9FN
-```
+C)
+Clone in github using git bash Go on the repository URL of the assignment. Copy the url and open git on gitbash
+and then git clone url link and open the file. Once you open the intellij file go to the main folder open it then go on src then open the java folder. Click on any jave file. Before you run the program. Edit configuration click add then go on glassfish server click on local. Then you go on deployments add artifact and choose csci2020u-assignment02-Safi-Virk-Zahid war exploded. Now go back to server make sure your URL is http://localhost:8080/WSChatServer-1.0-SNAPSHOT/. Have JRE JDK19 or up. Serve Domain should be domain1 and apply and press OK and your good to go. Run Glass fish server and your index.html will pop up automatically and now you can join a chat room and chat with multiple clients.
 
-### WebChatServer - client
-
-Your client is in the `webapp` folder, when started the application will run at `http://localhost:8080/WSChatServer-1.0-SNAPSHOT/`; which will load the `index.html` file.
-
-Your client-side code will be in the `js/main.js` javascript file.
-
-> Obs. Feel free to create other helper classes as you see fit.
-> 
-
-
-
+D) We used class labs and class assignments.
